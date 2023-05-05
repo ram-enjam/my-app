@@ -40,6 +40,17 @@
         </div>
     </div>
 
+    <div formArrayName="products">
+        <h2>Products</h2>
+        <button type="button" (click)="addProduct()">+ Add another product</button>
+      
+        <div *ngFor="let product of products.controls; let i=index">
+          <!-- The repeated product template -->
+          <label for="product-{{ i }}">Product-{{i}}:</label>
+          <input id="product-{{ i }}" type="text" [formControlName]="i">
+        </div>
+    </div>
+
     <p>Complete the form to enable button.</p>
     <button type="submit" [disabled]="!profileForm.valid">Submit</button>
     <button type="button" (click)="updateprofileonClick()">Update Profile</button>
